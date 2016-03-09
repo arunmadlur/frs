@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>FRS DASHBOARD</title>
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+      <![endif]-->
+    </head>
+    <body>
+      <!--******************************* nav start ************************************-->
+      <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top no_margin">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">FRS</a>
+        </div>
+      </nav>
+      <!--******************************* nav ends ************************************-->
+
+      <div class="container-fluid padding_because_fixed_navbar">
+        <div class="row">
+          <div class="col-sm-3 col-md-2 no_padding fixed">
+           <!-- Collect the nav links, forms, and other content for toggling -->
+           <div class="collapse navbar-collapse no_padding" id="bs-example-navbar-collapse-1">
+            <nav class="navbar navbar-default right_border navbar-static-top custom_width_for_sidebar">
+              <div class="container-fluid">
+
+                <div class="form-group search_nav">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="search...">
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+                  </div>
+                </div>
+
+                <div class="panel-group side_menu" id="accordion" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-default">
+                    <div class="panel-heading no_padding" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          <span class="glyphicon glyphicon-dashboard"></span> Dashboard
+                        </a>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading no_padding" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          <span class="glyphicon glyphicon-user"></span> Registered Users
+                        </a>
+                      </h4>
+                    </div>
+                  </div>
+
+
+
+                  <br>
+                  <br>
+                  <div class="panel panel-default">
+                    <div class="panel-heading bg-primary" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        CATEGORIES <span class="glyphicon glyphicon-th-list pull-right"></span>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading no_padding" role="tab" id="headingTwo">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#article" aria-expanded="false" aria-controls="collapseTwo">
+                          <span class="glyphicon glyphicon-file"></span> Articles
+                        </a>
+                      </h4>
+                    </div>
+                      <!-- <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                          Hadoop
+                        </div>
+                      </div> -->
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading no_padding" role="tab" id="headingThree">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <span class="glyphicon glyphicon-book"></span> Ebooks
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+                        <div class="panel-body">
+                          Hadoop
+                        </div>
+                      </div> -->
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading no_padding" role="tab" id="headingFour">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                            <span class="glyphicon glyphicon-facetime-video"></span> Videos
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+                        <div class="panel-body">
+                          Hadoop
+                        </div>
+                      </div> -->
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading no_padding" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                            <span class="glyphicon glyphicon-list-alt"></span> Practice Test
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                        <div class="panel-body">
+                          Hadoop
+                        </div>
+                      </div> -->
+                    </div>
+                    <div class="panel panel-default">
+                      <div class="panel-heading no_padding" role="tab" id="headingFive">
+                        <h4 class="panel-title">
+                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                            <span class="glyphicon glyphicon glyphicon-globe"></span> Webinars
+                          </a>
+                        </h4>
+                      </div>
+                      <!-- <div id="collapseSix" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
+                        <div class="panel-body">
+                          Hadoop
+                        </div>
+                      </div> -->
+                    </div>
+                  </div>
+
+                </div>
+              </nav>
+            </div><!-- /.navbar-collapse -->
+          </div>   
+
+
+          <div class="col-sm-9 col-md-10 no_padding pull-right">
+            <div class="container-fluid white_bg">
+              <div ng-view></div>  
+            </div>
+          </div> 
+
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <!-- <nav class="navbar navbar-inverse navbar-static-top no_margin no_padding footer ">
+    </nav> -->
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
+    <script type="text/javascript" src="js/Chart.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+
+  </body>
+  </html>

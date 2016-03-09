@@ -1,0 +1,75 @@
+<div class="row">
+  <div class="col-md-12">
+
+    <div class="page-header">
+      <h1>Articles</h1>
+    </div>
+
+    <div ng-show="!filter_advance">
+      Basic Search <span class="glyphicon glyphicon-chevron-down"></span>
+      <form class="form-inline text-center element">
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="title">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputEmail2" placeholder="course id">
+        </div>
+      </form>
+      <span class="pull-right"><a href="" ng-click="filter_advance = !filter_advance">Advance Search</a></span>
+    </div>
+
+    <div ng-show="filter_advance">
+      Advance Search <span class="glyphicon glyphicon-chevron-down"></span>
+      <form class="form-inline text-center element">
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="title">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputEmail2" placeholder="course id">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="author">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="skills">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="tags">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="time">
+        </div>
+      </form>
+      <span class="pull-right"><a href="" ng-click="filter_advance = !filter_advance">Basic Search</a></span>
+    </div>
+
+    
+
+    <hr>
+
+
+    <div class="panel panel-default" ng-repeat="article in articles">
+      <div class="panel-body">
+        <div class="row">
+          <div class="col-md-2">
+            <img class="img-thumbnail img-responsive" ng-src="{{article.image_url}}"> 
+          </div>
+          <div class="col-md-10">
+            <h4 class="bg-info some_padding">{{article.name}}
+              <span class="pull-right">
+                <span class="glyphicon glyphicon-comment"></span> <span class="badge">{{article.comments}}</span> / 
+                <span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge">{{article.likes}}</span>
+              </span>
+            </h4>
+            <p><b>Description:</b> {{article.short_description}}</p>
+            <p><img ng-src="{{article.author_image}}" alt="..." class="img-circle thumb_img"></p>
+            <button type="button" class="btn btn-info pull-right">View Article</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<hr>

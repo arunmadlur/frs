@@ -1,0 +1,107 @@
+<h1 class="grey">{{category_name | uppercase}} <small>{{allCategoryLength}}</small></h1>
+<hr>
+
+<div class="row" >
+  <div class="col-md-12">
+
+
+   <div ng-show="!filter_advance">
+      Basic Search <span class="glyphicon glyphicon-chevron-down"></span>
+      <form class="form-inline text-center element">
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" ng-model="title" placeholder="title">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputEmail2" placeholder="course id">
+        </div>
+      </form>
+      <span class="pull-right"><a href="" ng-click="filter_advance = !filter_advance">Advance Search</a></span>
+    </div>
+
+    <div ng-show="filter_advance">
+      Advance Search <span class="glyphicon glyphicon-chevron-down"></span>
+      <form class="form-inline text-center element">
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="title">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputEmail2" placeholder="course id">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name="srch" list="datalist1" id="exampleInputName2 srch" placeholder="author" ng-model="author_name" ng-change="changeFun()">
+          <datalist id="datalist1">
+            <option ng-repeat="author in authors" value="{{author}}">
+          </datalist>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="skills">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="tags">
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" id="exampleInputName2" placeholder="time">
+        </div>
+      </form>
+      <span class="pull-right"><a href="" ng-click="filter_advance = !filter_advance">Basic Search</a></span>
+    </div>
+
+<hr>
+
+    
+
+    
+
+    
+    <pagination ng-model="currentPage" items-per-page="30" num-pages="numPages" total-items="allCategoryLength" max-size="5" boundary-links="true" ng-change="getPage(currentPage)"> </pagination>
+
+
+    <!-- *********************************  article view *********************************** -->
+    <div class="panel some_padding panel-info drop_shadow search_card" id="card{{$index}}" ng-repeat="catData in filteredCategoryData" ng-class="{ 'selectedCard': catData.id == currentSelection }" ng-click="cardSelected(catData.id)">
+      <div class="media">
+        <div class="media-left">
+          <a href="">
+            <span ng-show="category_name === 'article'"><img class="media-object img-thumbnail" ng-src="{{catData.image_url}}" alt="..." width="200" ></span>
+            <span ng-show="category_name === 'ebook'"><img class="media-object img-thumbnail" src="img/ebook.jpeg" alt="..." width="200" ></span>
+            <span ng-show="category_name === 'video'"><img class="media-object img-thumbnail" ng-src="{{catData.thumbnail_url}}" alt="..." width="200" ></span>
+            <span ng-show="category_name === 'webinar'"><img class="media-object img-thumbnail" ng-src="{{catData.thumb_image}}" alt="..." width="200" ></span>
+          </a>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading">
+            <span ng-show="category_name === 'article' || category_name === 'ebook' || category_name === 'video'">{{catData.display_name}}</span>
+            <span ng-show="category_name === 'webinar'">{{catData.name}}</span>
+            <span class="pull-right">
+              <span class="glyphicon glyphicon-comment"></span> <span class="badge">{{catData.comments}}</span> / 
+              <span class="glyphicon glyphicon-thumbs-up"></span> <span class="badge">{{catData.likes}}</span>
+            </span>
+          </h4>
+          <b>Description:</b>
+            <span ng-show="category_name === 'article' || category_name === 'video' || category_name === 'webinar'">{{catData.short_description | limitTo:150}}...</span>
+            <span ng-show="category_name === 'ebook'">{{catData.description | limitTo:150}}...</span><br>
+
+          <b>Author:</b> {{catData.author_name}} <br>
+          <b>Status:</b> {{catData.status}} |
+          <b>Tags:</b> {{catData.tags}} |
+          <b>segments:</b> {{catData.segments}} |
+          <b>Engagement score:</b> {{catData.engagement_score}}
+          <button ng-hide="category_name === 'video'" type="button" class="btn btn-info pull-right">View {{category_name}}</button>
+          <a ng-show="category_name === 'video'" ng-href="{{catData.video_link}}" target="_blank" type="button" class="btn btn-info pull-right">View {{category_name}}</a>
+          <p><img ng-src="{{catData.author_image}}" ng-show="catData.author_image" alt="..." class="img-circle thumb_img author_img" width="5"></p>
+          <p><img ng-src="img/avatar.png" ng-show="!catData.author_image" alt="..." class="img-circle thumb_img author_img" width="5"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- *********************************  Ebook view *********************************** -->
+
+
+
+
+
+
+  </div>
+</div>
+
+<hr>
+

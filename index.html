@@ -8,6 +8,7 @@
   <title>FRS DASHBOARD</title>
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
+
   <link rel="stylesheet" type="text/css" href="css/style.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -16,8 +17,10 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
+
+
     </head>
-    <body>
+    <body ng-controller="mainCtrl" ng-keydown="">
       <!--******************************* nav start ************************************-->
       <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top no_margin">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -30,6 +33,16 @@
           </button>
           <a class="navbar-brand" href="#">FRS</a>
         </div>
+        <!-- <a class="navbar-brand pull-right" ng-click="showSearchBar()" ng-hide="searchBar">search</a>
+        <form class="navbar-form navbar-right search_animate" role="search" ng-show="searchBar">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon close_btn" ng-click="showSearchBar_close()">X</div>
+              <input type="text" class="form-control text-right" id="top_search" ng-model="global_search" placeholder="Search">
+            </div>
+          </div>
+        </form> -->
+
       </nav>
       <!--******************************* nav ends ************************************-->
 
@@ -48,11 +61,13 @@
                   </div>
                 </div>
 
+
+
                 <div class="panel-group side_menu" id="accordion" role="tablist" aria-multiselectable="true">
                   <div class="panel panel-default">
                     <div class="panel-heading no_padding" role="tab" id="headingOne">
                       <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <a class="collapsed" role="button" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                           <span class="glyphicon glyphicon-dashboard"></span> Dashboard
                         </a>
                       </h4>
@@ -61,8 +76,17 @@
                   <div class="panel panel-default">
                     <div class="panel-heading no_padding" role="tab" id="headingOne">
                       <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <a class="collapsed" role="button" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                           <span class="glyphicon glyphicon-user"></span> Registered Users
+                        </a>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="panel panel-default">
+                    <div class="panel-heading no_padding" role="tab" id="headingOne">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" href="#tags" aria-expanded="true" aria-controls="collapseOne">
+                          <span class="glyphicon glyphicon-tags"></span>  All Tags
                         </a>
                       </h4>
                     </div>
@@ -82,7 +106,7 @@
                   <div class="panel panel-default">
                     <div class="panel-heading no_padding" role="tab" id="headingTwo">
                       <h4 class="panel-title">
-                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#article" aria-expanded="false" aria-controls="collapseTwo">
+                        <a class="collapsed" role="button" href="#category/article" aria-expanded="false" aria-controls="collapseTwo">
                           <span class="glyphicon glyphicon-file"></span> Articles
                         </a>
                       </h4>
@@ -96,7 +120,7 @@
                     <div class="panel panel-default">
                       <div class="panel-heading no_padding" role="tab" id="headingThree">
                         <h4 class="panel-title">
-                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          <a class="collapsed" role="button" href="#category/ebook" aria-expanded="false" aria-controls="collapseThree">
                             <span class="glyphicon glyphicon-book"></span> Ebooks
                           </a>
                         </h4>
@@ -110,7 +134,7 @@
                     <div class="panel panel-default">
                       <div class="panel-heading no_padding" role="tab" id="headingFour">
                         <h4 class="panel-title">
-                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                          <a class="collapsed" role="button" href="#category/video" aria-expanded="false" aria-controls="collapseFour">
                             <span class="glyphicon glyphicon-facetime-video"></span> Videos
                           </a>
                         </h4>
@@ -124,7 +148,7 @@
                     <div class="panel panel-default">
                       <div class="panel-heading no_padding" role="tab" id="headingFive">
                         <h4 class="panel-title">
-                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                          <a class="collapsed" role="button" href="#category/practiceTest" aria-expanded="false" aria-controls="collapseFive">
                             <span class="glyphicon glyphicon-list-alt"></span> Practice Test
                           </a>
                         </h4>
@@ -138,7 +162,7 @@
                     <div class="panel panel-default">
                       <div class="panel-heading no_padding" role="tab" id="headingFive">
                         <h4 class="panel-title">
-                          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                          <a class="collapsed" role="button" href="#category/webinar" aria-expanded="false" aria-controls="collapseSix">
                             <span class="glyphicon glyphicon glyphicon-globe"></span> Webinars
                           </a>
                         </h4>
@@ -158,8 +182,8 @@
 
 
           <div class="col-sm-9 col-md-10 no_padding pull-right">
-            <div class="container-fluid white_bg">
-              <div ng-view></div>  
+            <div class="container-fluid white_bg ">
+              <div ng-view class="element"></div>  
             </div>
           </div> 
 
@@ -178,10 +202,30 @@
     <script src="js/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://code.angularjs.org/1.5.0/angular-route.min.js"></script>
+    <script data-require="ui-bootstrap@*" data-semver="0.12.1" src="http://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.min.js"></script>
     <script type="text/javascript" src="js/Chart.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/main.js"></script>
+
+    <script>
+      $(document).ready(function(){
+            $('body').append('<div id="toTop" class="btn btn-info"><span class="glyphicon glyphicon-chevron-up"></span> Back to Top</div>');
+            $(window).scroll(function () {
+            if ($(this).scrollTop() != 0) {
+              $('#toTop').fadeIn();
+            } else {
+              $('#toTop').fadeOut();
+            }
+          }); 
+          $('#toTop').click(function(){
+              $("html, body").animate({ scrollTop: 0 }, 600);
+              return false;
+          });
+      });
+    </script>
+
+    
 
   </body>
   </html>
